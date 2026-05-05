@@ -1,0 +1,138 @@
+
+Internet is a global network of computers that communicate with each other using standardized protocols. It allows users to access and share information, communicate, and perform various activities online. The internet works by connecting devices through a series of routers and servers, enabling data to be transmitted across the network. When you access a website or send an email, your device sends a request to the server hosting that content, which then responds with the requested information. This process happens in milliseconds, allowing for seamless communication and access to information worldwide.
+
+how it actually works?
+When you type a URL into your web browser, the following steps occur:
+1. DNS Lookup: The browser first performs a DNS (Domain Name System) lookup to translate the human-readable URL into an IP address that identifies the server hosting the website.
+2. Establishing a Connection: The browser establishes a connection with the server using the TCP/IP protocol. This involves a three-way handshake to ensure that both the client and server are ready to communicate.
+3. Sending an HTTP Request: The browser sends an HTTP request to the server, specifying the desired resource (e.g., a webpage, image, or API endpoint) and any additional information (e.g., headers, cookies).
+4. Server Processing: The server processes the request, which may involve retrieving data from a database, executing server-side code, or performing other operations to generate the appropriate response.
+5. Sending an HTTP Response: The server sends an HTTP response back to the browser, which includes the requested resource (e.g., HTML, CSS, JavaScript) and any relevant headers (e.g., content type, caching instructions).
+6. Rendering the Content: The browser receives the response and renders the content on the screen, allowing the user to interact with the webpage. This may involve executing JavaScript code, applying CSS styles, and loading additional resources (e.g., images, fonts) as needed.
+7. Closing the Connection: After the response is sent, the connection between the client and server may be closed, or it may be kept open for future requests (e.g., using HTTP keep-alive). This process happens very quickly, allowing for a seamless browsing experience.    
+
+
+json.strigify and json.parse
+JSON.stringify is a method in JavaScript that converts a JavaScript object or value into a JSON string. It takes an object as input and returns a string representation of that object in JSON format. This is useful for sending data over the network or storing it in a file, as JSON is a widely used data interchange format.
+
+JSON.parse is a method in JavaScript that parses a JSON string and converts it into a JavaScript object. It takes a JSON string as input and returns the corresponding JavaScript object. This is useful for receiving data from a server or reading data from a file, as it allows you to work with the data in a more convenient format within your JavaScript code.
+
+typeof operator in js
+The typeof operator in JavaScript is used to determine the type of a variable or expression. It returns a string that indicates the type of the operand. The possible return values include "undefined", "object", "boolean", "number", "string", "function", and "symbol". For example, if you have a variable x that holds a number, typeof x would return "number". This operator is useful for checking the type of data you are working with and can help prevent errors in your code by ensuring that you are using the correct types.    
+
+client server architecture
+Client-server architecture is a model for designing and implementing software applications where the client and server are separate entities that communicate with each other over a network. In this architecture, the client is responsible for making requests to the server, while the server processes those requests and provides the necessary resources or services. The client typically runs on a user's device (e.g., a web browser or mobile app), while the server runs on a remote machine that hosts the application or service. This separation allows for scalability, as multiple clients can connect to a single server, and it also enables centralized management of resources and data on the server side.
+
+componets of client server architecture
+The components of client-server architecture include:
+1. Client: The client is the user-facing component that interacts with the server. It can   be a web browser, mobile app, or any other software that sends requests to the server and receives responses.   
+2. Server: The server is the backend component that processes requests from clients and provides the necessary resources or services. It can be a web server, application server, or database server, depending on the specific application architecture.
+3. Network: The network is the communication channel that connects the client and server. It can be a local area network (LAN), wide area network (WAN), or the internet, depending on the scale of the application.
+4. Protocols: Protocols are the rules and standards that govern the communication between the client and server. Common protocols used in client-server architecture include HTTP/HTTPS for web applications, TCP/IP for general network communication, and WebSocket for real-time communication.
+5. Database: In many client-server architectures, a database is used to store and manage data   on the server side. The server interacts with the database to retrieve, update, and manage data as needed to fulfill client requests.
+6. Middleware: Middleware is software that acts as an intermediary between the client and server, providing additional functionality such as authentication, logging, or data transformation. It can help simplify the communication between the client and server and enhance the overall architecture of the application.
+
+CDN (Content Delivery Network)
+A CDN, or Content Delivery Network, is a network of servers distributed across various geographical locations that work together to deliver web content to users more efficiently. The primary purpose of a CDN is to reduce latency and improve the performance of websites by caching and serving content from servers that are closer to the user's location. When a user requests a webpage, the CDN directs the request to the nearest server, which can quickly deliver the cached content, such as images, videos, and other static assets. This helps to reduce load times and improve the overall user experience, especially for users located far from the origin server. CDNs are commonly used by websites with high traffic or global audiences to ensure fast and reliable content delivery.
+
+load balancer
+A load balancer is a device or software that distributes incoming network traffic across multiple servers to ensure that no single server becomes overwhelmed with too much traffic. The primary purpose of a load balancer is to improve the performance, reliability, and scalability of applications by evenly distributing the workload among multiple servers. Load balancers can use various algorithms to determine how to distribute traffic, such as round-robin, least connections, or IP hash. By using a load balancer, organizations can ensure that their applications remain responsive and available even during periods of high traffic or when individual servers experience issues. Load balancers are commonly used in web applications, cloud services, and other distributed systems to enhance performance and provide fault tolerance.
+
+cache
+Cache is a temporary storage area that holds frequently accessed data or resources to improve performance and reduce latency. In computing, caching is used to store copies of data or resources that are expensive to retrieve or compute, allowing for faster access when needed. Caches can be implemented at various levels, such as in the CPU (L1, L2, L3 caches), in web browsers (browser cache), or in content delivery networks (CDN cache). By storing frequently accessed data in a cache, systems can reduce the time it takes to retrieve information, improve response times, and enhance overall performance. However, it's important to manage caches effectively to ensure that they remain up-to-date and do not consume excessive resources.
+
+main database
+A main database, also known as a primary database, is the central repository of data for an application or organization. It is the authoritative source of information that is used for storing, managing, and retrieving data. The main database typically contains all the critical data that is essential for the functioning of the application, such as user information, transaction records, and other relevant data. It is often designed to handle high volumes of data and provide fast access to ensure optimal performance. The main database is usually backed up regularly to prevent data loss and ensure data integrity. In some cases, organizations may also use secondary databases or replicas to improve performance and provide redundancy in case of failures.
+
+backup database
+A backup database is a copy of the main database that is created and stored separately to protect against data loss or corruption. Backup databases are used to ensure that critical data can be restored in the event of hardware failure, software issues, human error, or other unforeseen circumstances that may lead to data loss. Backup databases can be created using various methods, such as full backups, incremental backups, or differential backups, depending on the specific needs of the organization. It is important to regularly create and test backup databases to ensure that they are reliable and can be used effectively for data recovery when needed.
+
+client -> internet-> load balancer -> cache -> main database
+             |
+             CDN
+
+what is API and Endpoint
+An API, or Application Programming Interface, is a set of rules and protocols that allows different software applications to communicate with each other. It defines how requests and responses should be structured, what data can be accessed, and how the interactions between different software components should occur. APIs enable developers to integrate third-party services, access data from external sources, and build complex applications by leveraging existing functionality.
+
+An endpoint, in the context of APIs, refers to a specific URL or URI (Uniform Resource Identifier) that represents a particular resource or functionality within an API. It is the location where an API can be accessed and interacted with. Each endpoint typically corresponds to a specific action or operation that can be performed on the resource it represents. For example, in a RESTful API, endpoints may include URLs for creating, retrieving, updating, or deleting resources. Endpoints are essential for defining the structure and functionality of an API and allow developers to interact with the API in a consistent and organized manner.
+
+create a server using nodejs
+
+To create a server using Node.js, you can use the built-in http module. Here is a simple example of how to create a basic HTTP server that listens on port 3000 and responds with "Hello, World!" when accessed:
+```javascript
+const http = require('http');
+const hostname = 'localhost';
+const port = 3000;
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello, World!');
+});
+
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
+```
+In this code, we first require the http module and define the hostname and port for our server. We then create a server using the createServer method, which takes a callback function that handles incoming requests and sends responses. In this case, we set the status code to 200 (OK), specify the content type as plain text, and end the response with "Hello, World!". Finally, we start the server by calling the listen method, which takes the port, hostname, and a callback function that logs a message when the server is running. You can run this code in a Node.js environment, and when you access http://localhost:3000/ in your web browser, you will see the message "Hello, World!" displayed on the page.
+
+
+create a server 
+
+Express is a popular web application framework for Node.js that provides a more streamlined and efficient way to create servers and handle routing compared to using the built-in http module. When creating a server with Express, you can take advantage of its features such as middleware support, routing capabilities, and simplified request handling. Here is an example of how to create a server using Express:
+```javascriptconst express = require('express');
+const app = express();
+const port = 3000;
+app.get('/', (req, res) => {
+  res.send('Hello, World!');
+});
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}/`);
+});
+```In this code, we first require the express module and create an instance of the Express application. We then define a route for the root URL ("/") that sends a response of "Hello, World!" when accessed. Finally, we start the server by calling the listen method, which takes the port and a callback function that logs a message when the server is running. Using Express allows for cleaner and more organized code, especially as your application grows in complexity, compared to using the http module directly.
+
+
+creating a server in Node.js vs express package
+
+Express.js is a popular framework for building we aplication and API using node.js
+
+when you create an express,js applicationm you are setting up the foundation for handling incoming requests and defining how your application responds to them
+
+now we are going to create a server  == waiterr 
+now the waiter has his own home?
+
+in simple terms , 'localhost' refers to your own computer after creating a server in noodejs, you can access your environment in localhost
+
+port Number :
+
+is a unique identifier for a specific process or service running on a computer. When you create a server in Node.js, you need to specify a port number for the server to listen on. This allows clients to connect to the server using that port number. For example, if you create a server that listens on port 3000, clients can access it by navigating to http://localhost:3000/ in their web browser. The port number helps to ensure that the correct service is accessed when multiple services are running on the same machine.
+
+
+const express = require('express') // requiring the express module
+const app = express() // creating an instance of express application
+
+app.get('/', function (req,res) {
+    res.send("express server")
+
+})
+
+app.listen(3000)
+
+''' in this code we are creating a server using express package. We first require the express module and create an instance of the Express application. We then define a route for the root URL ("/") that sends a response of "express server" when accessed. Finally, we start the server by calling the listen method, which takes the port number (3000 in this case) as an argument. This allows clients to connect to the server using http://localhost:3000/ and receive the response defined in the route.
+
+methods to share data between files in nodejs
+
+how data is sent and received between a client (ike a web browser) ans sever (built with node.js)
+
+so there are lot of methods to send or receive dara acoording to their needs :
+
+GET method : The GET method is used to request data from a specified resource. It is one of the most common HTTP methods and is typically used to retrieve information from a server. When a client sends a GET request, it includes any necessary parameters in the URL, and the server responds with the requested data. For example, if you want to retrieve a list of users from a server, you might send a
+GET request to an endpoint like http://localhost:3000/users, and the server would respond with the list of users in a format such as JSON.
+
+POST method : The POST method is used to send data to a server to create or update a resource. It is commonly used when submitting form data or uploading files. When a client sends a POST request, it includes the data in the body of the request, and the server processes that data to create or update the resource accordingly. For example, if you want to create a new user on a server, you might send a POST request to an endpoint like http://localhost:3000/users with the user data in the request body, and the server would respond with a confirmation that the user was created successfully.
+
+Patch method : The PATCH method is used to apply partial modifications to a resource on the server. It is typically used when you want to update only specific fields of a resource rather than replacing the entire resource, which is what the PUT method does. When a client sends a PATCH request, it includes the data that needs to be updated in the body of the request, and the server processes that data to make the necessary changes to the resource. For example, if you want to update a user's email address on a server, you might send a PATCH request to an endpoint like http://localhost:3000/users/123 with the new email address in the request body, and the server would respond with a confirmation that the user's email was updated successfully.
+
+delete method : The DELETE method is used to delete a specified resource from the server. When a client sends a DELETE request, it typically includes the identifier of the resource to be deleted in the URL, and the server processes that request to remove the resource from its database or storage. For example, if you want to delete a user with an ID of 123 from a server, you might send a DELETE request to an endpoint like http://localhost:3000/users/123, and the server would respond with a confirmation that the user was deleted successfully.  
+
+
