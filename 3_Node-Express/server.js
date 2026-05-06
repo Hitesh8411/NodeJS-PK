@@ -4,18 +4,23 @@ const app = express();
 require("dotenv").config();
 
 const db = require("./db");
+const passport = require("./auth");
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 const PORT = process.env.PORT || 3000;
 
 //Middleware Function
-const logRequest= (req,res,next)=>{
-    console.log(`${req.method} ${req.url} at ${new Date()}`);
-    next();
-}
+const logRequest = (req, res, next) => {
+  console.log(` ${req.url} at ${new Date()}`);
+  next();
+};
 app.use(logRequest);
-app.get("/", function (req, res) {
+
+app.use(passport.initialize());
+const localAuthMiddleware = passport.authenticate("local", { session: false });
+
+app.get("/", localAuthMiddleware, function (req, res) {
   res.send("welcome to our DHABA");
 });
 
