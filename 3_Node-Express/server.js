@@ -9,6 +9,12 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 const PORT = process.env.PORT || 3000;
 
+//Middleware Function
+const logRequest= (req,res,next)=>{
+    console.log(`${req.method} ${req.url} at ${new Date()}`);
+    next();
+}
+app.use(logRequest);
 app.get("/", function (req, res) {
   res.send("welcome to our DHABA");
 });
@@ -20,7 +26,6 @@ app.use("/person", personRoutes);
 const menuItemRoutes = require("./routes/menuItemRoutes");
 app.use("/menu", menuItemRoutes);
 
-app.listen(3000, () => {
-  console.log("listening on port 3000");
+app.listen(PORT, () => {
+  console.log(`listening on port ${PORT}`);
 });
-  
