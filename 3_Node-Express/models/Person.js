@@ -46,27 +46,25 @@ const personSchema =new mongoose.Schema({
 
 });
 
-personSchema.pre('save', async function(next){
-    const person = this;
+personSchema.pre('save', async function () {
 
-    // Hash the password only if it has been modified (or is new)
-    if(!person.isModified('password')) return next();
+    // Hash password only if modified
+    if (!this.isModified('password')) return;
 
-    try{
-        // hash password generation
+    try {
+
+        // Generate salt
         const salt = await bcrypt.genSalt(10);
 
-        // hash password
-        const hashedPassword = await bcrypt.hash(person.password, salt);
-        
-        // Override the plain password with the hashed one
-        person.password = hashedPassword;
-        next();
-    }catch(err){
-        return next(err);
-    }
-})
+        // Hash password
+        this.password = await bcrypt.hash(this.password, salt);
 
+    } catch (err) {
+
+        throw err;
+
+    }
+});
 personSchema.methods.comparePassword = async function(candidatePassword){
     try{
         // Use bcrypt to compare the provided password with the hashed password
