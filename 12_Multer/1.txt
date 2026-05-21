@@ -1,0 +1,90 @@
+multer package 
+popular package to upload images
+
+Multer is a Node.js middleware primarily used for handling multipart/form-data,
+which is the encoding type required for file uploads. It is commonly used with
+Express.js or Node.js applications to upload fijes such as images, PDFs, and others.
+
+How Multer Works
+
+1. Middleware Integration: Multer integrates with Express or Node.js routes and
+acts as middleware. It intercepts incoming file data (from forms) and processes
+it, then passes the file data to your route handler.
+
+2. Storage: Multer allows you to specify how and where to store the uploaded files
+(locally on disk, in memory, or in cloud storage).
+
+3. File Handling: It parses incoming files in the multipart form-data request and
+makes them accessible via req. file or req. files.
+
+4. Limits and Filters: Multer allows setting file size limits, filtering files based on
+type (e.g., only images), and handling errors gracefully.
+
+multipart/form-data is a content type used to send files or large data in HTTP
+requests, typically used when submitting forms that include file uploads.
+
+It allows you to send binary data (like images, videos, and other file types) along with
+text data in a single HTTP request, making it ideal for forms with both types of input.
+
+Standard Form Data (Text Data Submission)
+
+When you submit a simple form that only contains text fields (like username,
+password, and email), the browser uses the
+application/x-www-form-urlencoded format by default to encode and send the
+form data. This type of encoding is suitable for sending text but not for sending binary
+data like images or files.
+
+
+How application/x-www-form-urlencoded Works
+
+. When you submit a form, the data in the form (e.g., input fields like name, email,
+etc.) is encoded and sent to the server.
+. In application/x-www-form-urlencoded, the form data is converted into a
+query string format.
+. A query string looks like this:
+
+key1=value1&key2=value2&key3=value3
+
+Here:
+
+. Each input field is encoded as a key-value pair (key=value).
+. Multiple key-value pairs are joined by an & symbol.
+How does an Image get converted into Binary data?
+
+When you upload a JPEG image during a file upload process, the image is converted
+into binary data by the browser before sending it to the server. Here's a detailed
+breakdown of the steps and how it works:
+
+Step-by-Step Process:
+
+1. User Selects the Image in the Browser
+
+. A user selects a file (e.g., a JPEG image) through an HTML form element with
+<input type="file">.
+. The file on the user's local system is stored in binary format. Every file on a
+computer, whether an image, document, or video, is essentially binary data on
+disk.
+
+2. Browser Reads the File
+
+. Once the user selects the file and submits the form, the browser takes the
+selected file (in this case, a JPEG image).
+. The browser doesn't need to "convert" the image in the traditional sense, as filesare already stored as binary data on your computer.
+The file is read from the computer's file system in its raw binary form, which
+contains all the bytes (1s and 0s) that make up the JPEG image.
+
+3. Browser Prepares the HTTP Request
+
+. When the form is submitted, the browser prepares an HTTP request to send the
+form data to the servert
+. If the form uses enctype="multipart/form-data", the browser knows that
+the form data can include binary files (like images).
+. The browser includes the binary data of the image in the request, along with
+other form fields (like text inputs).
+
+4. Encoding the Form Data (Multipart Encoding)
+
+. The browser creates a multipart/form-data request, which separates each part
+of the form (text inputs, file inputs) with a boundary string.
+. For the file, the browser includes the binary content of the image file (the raw
+bytes) in one of the parts of the request.
